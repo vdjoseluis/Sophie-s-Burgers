@@ -9,8 +9,13 @@ $(() => {
 
     $('#modalPedidos').modal('show');
 
+    $('#modalPedidos').on('hidden.bs.modal', () => {
+        // TODO: cuando se cierra la ventana del modal...que hacer
+                
+    });
+
     $('input[type="radio"][name="orderOptions"]').on('click', () =>{
-        $('#footerPedidos').removeClass('d-none');
+        $('#footerOrders').removeClass('d-none');
         $('#address').removeClass('d-none');
         $("#addressInput").trigger('focus');
     });
@@ -19,8 +24,17 @@ $(() => {
         var address= $("#addressInput").val();
         var geocoder= new google.maps.Geocoder();
         geocoder.geocode({'address': address},function(results,status){
-            if (status === google.maps.GeocoderStatus.OK){
+            if (status === google.maps.GeocoderStatus.OK && results[0]){
                 /* DIRECCION CORRECTA */
+                let city = '';
+                for (let component of results[0].address_components) {
+                    if (component.types.includes('locality')) {
+                        city = component.long_name;
+                        break;
+                    }
+                }
+                // TODO: mostrar la tienda mas cercana con la variable city.
+                console.log(city);
             } else {
                 $('#locationResult').removeClass('d-none');
                 $('#locationResult').text ("Dirección no válida");
@@ -67,4 +81,5 @@ $(() => {
             $("#locationResult").empty();
         }
     });
+
 });
