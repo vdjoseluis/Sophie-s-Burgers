@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quitar Checked de Checkbox al Editar Input Text con jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Quitar Checked de Checkbox al Editar Input Text</h1>
+    <input type="text" id="textInput" placeholder="Editar este campo">
+    <label for="disableCheckbox">Checkbox</label>
+    <input type="checkbox" id="disableCheckbox">
+
+    <script>
+        $(document).ready(function() {
+            var $disableCheckbox = $("#disableCheckbox");
+            var $textInput = $("#textInput");
+
+            $textInput.on("input", function() {
+                $disableCheckbox.prop("checked", false);
+            });
+        });
+    </script>
+</body>
+</html>

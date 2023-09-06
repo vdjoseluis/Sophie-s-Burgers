@@ -1,0 +1,135 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #ece2e2;
+  font-family: Ubuntu,sans-serif
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  background-color: #1a2127
+}
+.logo a img {
+  height: 6rem
+}
+.main-bar li {
+  font-size: 1.3rem;
+  list-style: none;
+  display: inline
+}
+.main-bar li a {
+  color: #ece2e2;
+  text-decoration: none
+}
+.main-bar li a:hover {
+  color: #c00404;
+  font-size: 1.5rem
+}
+.alt-bar li a {
+  color: #ece2e2
+}
+.alt-bar li a:hover {
+  color: #b49d9b
+}
+.imgs-container {
+  display: flex;
+  justify-content: center;
+  background-color: #1a2127
+}
+.imgs-container img {
+  max-width: 850px
+}
+.second-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  background-color: #dadada
+}
+.second-bar li a {
+  color: #000;
+  font-size: 1.2rem
+}
+.second-bar li a:hover {
+  color: #c00404;
+  font-size: 1.3rem
+}
+.text-article {
+  text-align: justify;
+  background-color: #fff;
+  padding: 2rem 10rem
+}
+@media (max-width:768px) {
+  .text-article {
+    padding: 1rem 3rem;
+    font-size: .9rem
+  }
+}
+.discover-dishes,
+.discover-menu {
+  color: #585454;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem
+}
+.discover-menu {
+  background-color: #dadada
+}
+.gallery,
+.gallery-menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  background-color: #1a2127;
+  padding: 1rem
+}
+.gallery img {
+  width: 350px
+}
+.gallery-menu img {
+  height: 400px
+}
+.menu {
+  color: #ece2e2
+}
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  background-color: #1a2127
+}
+footer li {
+  padding-left: 4rem;
+  list-style: none;
+  color: #87bd6f
+}
+footer li a {
+  color: #ece2e2;
+  text-decoration: none
+}
+footer li a:hover {
+  color: #a59292
+}
+.footer-logo a img {
+  height: 8rem
+}
+.rrss {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem
+}
+.rrss a img {
+  width: 2rem
+}
+.rrss a img:hover {
+  width: 2.3rem;
+  opacity: .7
+}

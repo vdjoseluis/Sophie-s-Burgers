@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "jquery": "^3.7.0"
+  },
+  "name": "sophie_s_burger",
+  "version": "1.0.0",
+  "description": "Hamburguesas gourmet de Sophie",
+  "main": "index.html",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vdjoseluis/Sophie-s-Burger.git"
+  },
+  "keywords": [
+    "burger",
+    "hamburguesas",
+    "gourmet"
+  ],
+  "author": "José Luis Vásquez Drouet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vdjoseluis/Sophie-s-Burger/issues"
+  },
+  "homepage": "https://github.com/vdjoseluis/Sophie-s-Burger#readme"
+}
