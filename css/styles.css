@@ -9,7 +9,7 @@ header {
   align-items: center;
   justify-content: space-around;
   width: 100%;
-  background-color: #1a2127
+  background-color: #1a2127;
 }
 .logo a img {
   height: 6rem
@@ -33,6 +33,7 @@ header {
 .alt-bar li a:hover {
   color: #b49d9b
 }
+
 .imgs-container {
   display: flex;
   justify-content: center;
@@ -97,16 +98,17 @@ header {
 .menu {
   color: #ece2e2
 }
+
 footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
   flex-wrap: wrap;
   gap: 20px;
   background-color: #1a2127
 }
 footer li {
-  padding-left: 4rem;
   list-style: none;
   color: #87bd6f
 }
@@ -124,7 +126,7 @@ footer li a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem
+  gap: 2rem
 }
 .rrss a img {
   width: 2rem

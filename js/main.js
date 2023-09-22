@@ -7,34 +7,49 @@ $(() => {
         window.location.href = "menus.html";
     });
 
-    $('#modalPedidos').modal('show');
+    $('#modalOrders').modal('show'); 
 
-    $('#modalPedidos').on('hidden.bs.modal', () => {
-        // TODO: cuando se cierra la ventana del modal...que hacer
-                
+    $('#btnPlaceOrder').on('click', () => {
+        location.reload();
     });
 
     $('input[type="radio"][name="orderOptions"]').on('click', () =>{
         $('#footerOrders').removeClass('d-none');
         $('#address').removeClass('d-none');
         $("#addressInput").trigger('focus');
-    });
+    }); 
 
     $('#validateAddress').on('click', () => {
+        const selectedOptionOrder= $("input[name='orderOptions']:checked").val();
+
         var address= $("#addressInput").val();
         var geocoder= new google.maps.Geocoder();
         geocoder.geocode({'address': address},function(results,status){
             if (status === google.maps.GeocoderStatus.OK && results[0]){
                 /* DIRECCION CORRECTA */
-                let city = '';
-                for (let component of results[0].address_components) {
-                    if (component.types.includes('locality')) {
-                        city = component.long_name;
-                        break;
+                if (selectedOptionOrder=="option1") {
+                    // CONFIRMACION ENTREGA A DOMICILIO
+                    $('#address').addClass('d-none');
+
+                    $('#modal-body').html("<p>Tu pedido se entregará en:</p>");
+                    // Aqui la variable $_POST de php
+                    // TODO: Escribir el resultado desde la variable direccion.
+
+                    $('#validateAddress').addClass('d-none');
+                    $('#okAddress').removeClass('d-none');
+                    $('#modalOrders .btn-close').hide();
+                } else {
+                    alert ('recogida en tienda');
+                    // TODO: mostrar la tienda mas cercana con la variable city.
+                    let city = '';
+                    for (let component of results[0].address_components) {
+                        if (component.types.includes('locality')) {
+                            city = component.long_name;
+                            break;
+                        }
                     }
                 }
-                // TODO: mostrar la tienda mas cercana con la variable city.
-                console.log(city);
+                
             } else {
                 $('#locationResult').removeClass('d-none');
                 $('#locationResult').text ("Dirección no válida");
@@ -81,5 +96,7 @@ $(() => {
             $("#locationResult").empty();
         }
     });
+
+    $('#okAddress').on('click', ()=> window.location.href="index.html");
 
 });
