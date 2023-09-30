@@ -119,9 +119,6 @@ footer li a {
 footer li a:hover {
   color: #a59292
 }
-.footer-logo a img {
-  height: 8rem
-}
 .rrss {
   display: flex;
   justify-content: center;

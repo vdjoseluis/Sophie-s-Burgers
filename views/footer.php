@@ -1,11 +1,9 @@
-export function createFooter() {
-  const $footer = $("<footer>");
-  const footerContent= `
+<footer>
     <ul class="lh-lg">
         <li>Copyright ® 2023 Sophie's Burger </li>
     </ul>
-    <div class="footer-logo">
-        <a href="index.html">
+    <div class="logo">
+        <a href="../index.php">
             <img src="../img/logo_burger.png" alt="logo" />
         </a>
     </div>
@@ -15,7 +13,10 @@ export function createFooter() {
         <a href="http://linkedin.com" target="_blank"><img src="../img/logos-rrss/logo-linkedin.png" alt="logoLinkedin" /></a>
         <a href="https://wa.me/34622161340" target="_blank"><img src="../img/logos-rrss/logo-whatsapp.png" alt="logoWhatsApp" /></a>
     </div>
-    `;
-    $footer.html(footerContent);
-  return $footer;
-}
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+
+</html>

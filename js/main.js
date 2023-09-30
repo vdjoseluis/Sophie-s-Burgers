@@ -1,5 +1,6 @@
 
 $(() => {
+
     $('#btnToCarta').on('click', () => {
         window.location.href = "carta.html";
     });
@@ -97,6 +98,6 @@ $(() => {
         }
     });
 
-    $('#okAddress').on('click', ()=> window.location.href="index.html");
+    $('#okAddress').on('click', ()=> window.location.href="index.php");
 
 });

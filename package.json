@@ -5,7 +5,7 @@
   "name": "sophie_s_burger",
   "version": "1.0.0",
   "description": "Hamburguesas gourmet de Sophie",
-  "main": "index.html",
+  "main": "index.php",
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
