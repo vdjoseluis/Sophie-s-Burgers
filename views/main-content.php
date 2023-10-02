@@ -55,7 +55,7 @@
 <section class="discover-dishes">
     <h3>DESCUBRE NUESTRA CARTA</h3>
     <button type="button" id="btnToCarta" class="btn btn-outline-danger btn-md">
-        Todos nuestros platos >
+        Todos nuestros platos > >
     </button>
 
     <div class="gallery">
