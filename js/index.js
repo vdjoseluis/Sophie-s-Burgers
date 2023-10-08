@@ -1,3 +1,6 @@
+require('dotenv').config();
+const googleApiKey= process.env.GOOGLE_MAPS_API_KEY;
+
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("#btnToCarta").addEventListener("click", () => {
     window.location.href = "../index.php?content=carta";

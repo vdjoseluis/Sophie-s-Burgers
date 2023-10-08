@@ -1,8 +1,3 @@
-<?php 
-    $envVariables= parse_ini_file('/keys.env');
-    $googleMapsApiKey= $envVariables['GOOGLE_MAPS_API_KEY'];
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -23,7 +18,7 @@
     <link rel="stylesheet" href="../css/styles.css" />
     <!--<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>-->
     <script src="../js/index.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $googleMapsApiKey; ?>&libraries=places"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $_ENV['GOOGLE_MAPS_API_KEY']; ?>&libraries=places"></script>
 </head>
 
 <body>
