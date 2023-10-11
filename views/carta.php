@@ -1,7 +1,7 @@
 <script>hideLink("Carta");</script>
 
 <section class="imgs-container">
-  <img src="../img/carta.png" class="w-100" alt="carta" />
+  <img src="img/carta.png" class="w-100" alt="carta" />
 </section>
 
 <article class="text-article">

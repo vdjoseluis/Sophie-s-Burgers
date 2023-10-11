@@ -1,12 +1,14 @@
-<?php 
-    require('./header.php');
-    if (($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['rememberEmail']))) {
-        echo "<script>alert ('¡ Te hemos enviado un email con tus datos registrados !');</script>";
+<?php
+    if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+        if (isset($_POST['rememberEmail'])) {    
+            echo "<script>alert ('¡ Te hemos enviado un email con tus datos registrados !');</script>";
+        }        
     }
 ?>
+
 <section class="rounded d-flex justify-content-center">
     <div class="col-md-6 shadow-lg p-5">
-        <form action="/index.php?content=pedidos" method="POST" id="formLogin">
+        <form action="index.php?content=pedidos" method="POST" id="formLogin">
             <div class="p-4">
                 <div class="input-group mb-3">
                     <span class="input-group-text bg-primary"><i class="bi bi-person-plus-fill text-white"></i></span>
@@ -22,12 +24,12 @@
             </div>
             <hr>
             <p class="text-center mt-4">¿ No tienes cuenta ?
-                <span class="text-primary">Regístrate</span>
+                <span class="text-primary"><a href="index.php?content=formUser">Regístrate</a></span>
             </p>
             <p class="text-center text-primary"><a href="#" id="rememberLink">He olvidado mi contraseña?</a></p>
         </form>
 
-        <form id="formRemember" class="d-none" action="/views/login.php" method="post">
+        <form id="formRemember" class="d-none" action="index.php?content=login" method="post">
             <div class="input-group mb-3">
                 <span class="input-group-text bg-primary"><i class="bi bi-envelope-fill text-white"></i></span>
                 <input type="email" class="form-control" name="rememberEmail" placeholder="Escribe tu email" required>
@@ -38,4 +40,3 @@
         </form>
     </div>
 </section>
-<?php require('./footer.php'); ?>

@@ -1,11 +1,16 @@
+<script>
+    handleClick("#btnToCarta", "index.php?content=carta");
+    handleClick("#btnToMenu", "index.php?content=menus");
+</script>
+
 <section class="imgs-container">
     <div id="carouselAutoplaying" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="../img/3BurgersFire.png" class="w-100" alt="3BurgersFire" />
+                <img src="img/3BurgersFire.png" class="w-100" alt="3BurgersFire" />
             </div>
             <div class="carousel-item">
-                <img src="../img/3BurgersLine.png" class="w-100" alt="3BurgersLine" />
+                <img src="img/3BurgersLine.png" class="w-100" alt="3BurgersLine" />
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselAutoplaying" data-bs-slide="prev">
@@ -59,10 +64,10 @@
     </button>
 
     <div class="gallery">
-        <img src="../img/BaconBurger.png" alt="BaconBurger" />
-        <img src="../img/ChampisBurger.png" alt="MushroomsBurger" />
-        <img src="../img/CheeseBurger.png" alt="CheeseBurger" />
-        <img src="../img/HuevoBurger.png" alt="EggBurger" />
+        <img src="img/BaconBurger.png" alt="BaconBurger" />
+        <img src="img/ChampisBurger.png" alt="MushroomsBurger" />
+        <img src="img/CheeseBurger.png" alt="CheeseBurger" />
+        <img src="img/HuevoBurger.png" alt="EggBurger" />
     </div>
 </section>
 
@@ -73,7 +78,7 @@
     </button>
 
     <div class="gallery">
-        <img src="../img/Menu1Burger.png" alt="Menu1" />
-        <img src="../img/Menu2Burger.png" alt="Menu2" />
+        <img src="img/Menu1Burger.png" alt="Menu1" />
+        <img src="img/Menu2Burger.png" alt="Menu2" />
     </div>
 </section>

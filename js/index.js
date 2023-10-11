@@ -1,21 +1,3 @@
-require('dotenv').config();
-const googleApiKey= process.env.GOOGLE_MAPS_API_KEY;
-
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelector("#btnToCarta").addEventListener("click", () => {
-    window.location.href = "../index.php?content=carta";
-  });
-
-  document.querySelector("#btnToMenu").addEventListener("click", () => {
-    window.location.href = "../index.php?content=menus";
-  });  
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelector("#btnLogin").addEventListener("click", () => {
-    window.location.href = "../views/login.php";
-  });
-});
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("#rememberLink").addEventListener("click", (e) => {
     e.preventDefault();
@@ -23,18 +5,16 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("#formRemember").classList.remove("d-none");
     document.querySelector("#formRemember input").focus();
   });
-
-  document.querySelector("#btnLogin2").addEventListener("click", () => {
-    window.location.href = "../views/login.php";
-  });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelector("#btnCancel").addEventListener("click", (e) => {
-    e.preventDefault();
-    window.location.href = "/index.php";
+function handleClick(component, destLink) {
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector(component).addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.href = destLink;
+    });  
   });
-});
+}
 
 function hideLink(currentLink) {
   const mainLinks = document.querySelectorAll(".main-bar ul li a");

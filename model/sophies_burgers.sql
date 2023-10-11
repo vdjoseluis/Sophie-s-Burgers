@@ -1,5 +1,5 @@
 CREATE DATABASE IF NOT EXISTS sophies_burgers;
-USE SB_prices;
+USE sophies_burgers;
 
 CREATE TABLE IF NOT EXISTS products (
 id INT PRIMARY KEY auto_increment,
@@ -9,11 +9,13 @@ price FLOAT NOT NULL
 
 CREATE TABLE IF NOT EXISTS customers (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    firstame VARCHAR(50) NOT NULL,
+    username VARCHAR(30) NOT NULL,
+    password VARCHAR(30) NOT NULL,
+    firstname VARCHAR(50) NOT NULL,
     surname VARCHAR(50) NOT NULL,
-    address VARCHAR(255),
-    phone VARCHAR(15),
-    email VARCHAR(80)
+    address VARCHAR(255) NOT NULL,
+    phone VARCHAR(15) NOT NULL,
+    email VARCHAR(80) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS tickets (
@@ -57,9 +59,7 @@ INSERT INTO products (product, price) VALUES
     ('Perrito Caliente', 4.99),
     ('Aros de Cebolla', 3.49);
 
-INSERT INTO customers (firstname, surname, address, phone, email) VALUES
-    ('Juan', 'Pérez', 'Calle 123, Málaga', '+1234567890', 'juan.perez@email.com'),
-    ('María', 'González', 'Avenida 456, Calella', '+9876543210', 'maria.gonzalez@email.com'),
+/* INSERT INTO customers (firstname, surname, address, phone, email) VALUES
     ('Pedro', 'López', 'Calle 789, Colmenar', '+5555555555', 'pedro.lopez@email.com'),
     ('Ana', 'Martínez', 'Calle 234, Barcelona', '+7777777777', 'ana.martinez@email.com'),
     ('Luis', 'Hernández', 'Avenida 567, Sevilla', '+9999999999', 'luis.hernandez@email.com'),
@@ -68,7 +68,7 @@ INSERT INTO customers (firstname, surname, address, phone, email) VALUES
     ('Sofía', 'Díaz', 'Avenida 123, Granada', '+3333333333', 'sofia.diaz@email.com'),
     ('Eduardo', 'Torres', 'Calle 345, Cádiz', '+4444444444', 'eduardo.torres@email.com'),
     ('Isabel', 'López', 'Avenida 678, Marbella', '+8888888888', 'isabel.lopez@email.com');
-    
+     */
 INSERT INTO items (ticket_id, product_id, quantity) VALUES
 	(1,1,1),
     (1,6,2),
@@ -77,5 +77,5 @@ INSERT INTO items (ticket_id, product_id, quantity) VALUES
     (2,11,2);
     
 INSERT INTO tickets (date, customer_id, total) VALUES
-	('2023-09-25', 4, 17.91,
+	('2023-09-25', 4, 17.91),
     ('2023-09-28',1, 4.98);

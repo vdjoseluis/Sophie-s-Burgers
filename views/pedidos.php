@@ -1,4 +1,8 @@
-<script>hideLink("Pedidos");</script>
+<script>
+    hideLink("Pedidos");
+    handleClick("#btnLogin","index.php?content=login");
+</script>
+
 <?php
     if (($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['login']))) {
         $user= $_POST['user'];
