@@ -59,16 +59,6 @@ INSERT INTO products (product, price) VALUES
     ('Perrito Caliente', 4.99),
     ('Aros de Cebolla', 3.49);
 
-/* INSERT INTO customers (firstname, surname, address, phone, email) VALUES
-    ('Pedro', 'López', 'Calle 789, Colmenar', '+5555555555', 'pedro.lopez@email.com'),
-    ('Ana', 'Martínez', 'Calle 234, Barcelona', '+7777777777', 'ana.martinez@email.com'),
-    ('Luis', 'Hernández', 'Avenida 567, Sevilla', '+9999999999', 'luis.hernandez@email.com'),
-    ('Laura', 'Sánchez', 'Avenida 890, Madrid', '+1111111111', 'laura.sanchez@email.com'),
-    ('Carlos', 'Ramírez', 'Calle 678, Gerona', '+2222222222', 'carlos.ramirez@email.com'),
-    ('Sofía', 'Díaz', 'Avenida 123, Granada', '+3333333333', 'sofia.diaz@email.com'),
-    ('Eduardo', 'Torres', 'Calle 345, Cádiz', '+4444444444', 'eduardo.torres@email.com'),
-    ('Isabel', 'López', 'Avenida 678, Marbella', '+8888888888', 'isabel.lopez@email.com');
-     */
 INSERT INTO items (ticket_id, product_id, quantity) VALUES
 	(1,1,1),
     (1,6,2),
