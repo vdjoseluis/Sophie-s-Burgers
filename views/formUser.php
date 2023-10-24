@@ -1,11 +1,17 @@
 <?php
 if (isset($_POST['signin'])) {
     require('controller/querys.php');
-    if (!existsUser($_POST['username'])) {
-        createUser($_POST['username'], $_POST['password'], $_POST['firstname'], $_POST['surname'], $_POST['address'], $_POST['phone'], $_POST['email']);
-        echo "<script>alert ('¡ Usuario registrado correctamente !');</script>";
-    } else {
-        echo "<script>alert ('¡ ERROR: El usuario ya existe !');</script>";
+    require('controller/functions.php');
+
+    $correctData = (checkAddress($_POST['address']) && checkPhone($_POST['phone'])) ? true : false;
+
+    if ($correctData) {
+        if (!existsUser($_POST['username'])) {
+            createUser($_POST['username'], $_POST['password'], $_POST['firstname'], $_POST['surname'], $_POST['address'], $_POST['phone'], $_POST['email']);
+            echo "<script>alert ('¡ Usuario registrado correctamente !');</script>";
+        } else {
+            echo "<script>alert ('¡ ERROR: El usuario ya existe !');</script>";
+        }
     }
 }
 ?>
@@ -40,7 +46,7 @@ if (isset($_POST['signin'])) {
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text bg-primary"><i class="bi bi-telephone text-white"></i></span>
-                    <input type="tel" class="form-control me-2" placeholder="Teléfono" name="phone" required>
+                    <input type="tel" class="form-control me-2" placeholder="Teléfono móvil" name="phone" required>
                     <span class="input-group-text bg-primary"><i class="bi bi-envelope text-white"></i></span>
                     <input type="email" class="form-control" placeholder="Email" name="email" required>
                 </div>

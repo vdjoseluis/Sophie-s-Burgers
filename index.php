@@ -1,5 +1,5 @@
 <?php 
-require('views/header.php');
+require('views/headerPage.php');
 
 # MUESTRA EL CONTENIDO PRINCIPAL DE LA PÁGINA 
 
@@ -28,6 +28,6 @@ if (isset($_GET['content'])) {
     include('views/main-content.php');
 }
 
-require('views/footer.php');
+require('views/footerPage.php');
 
 ?>

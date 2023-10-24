@@ -1,19 +1,24 @@
 <script>
     hideLink("Pedidos");
-    handleClick("#btnLogin","index.php?content=login");
+    handleClick("#btnLogin", "index.php?content=login");
 </script>
 
 <?php
-    if (($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['login']))) {
-        $user= $_POST['user'];
-        $password= $_POST['password'];
-        $msgLogin= "Bienvenido ". $user . ", escoge una opción:";
-        $msgButton= "Cambiar usuario";
+$msgLogin = "Debes iniciar sesión para poder realizarlo.";
+$msgButton = "Iniciar sesión";
+
+if (isset($_POST['login'])) {
+    require('controller/querys.php');
+    if (findUser($_POST['user'], $_POST['password'])) {
+        $msgLogin = "Bienvenido <strong>" . $_POST['user'] . ",</strong> escoge una opción:";
+        $msgButton = "Cambiar usuario";
     } else {
-        $msgLogin="Debes iniciar sesión para poder realizarlo.";
-        $msgButton= "Iniciar sesión";
+        echo "<script>alert ('¡ Usuario o contraseña incorrecta !');</script>";
     }
+}
+
 ?>
+
 <section class="container-fluid text-center">
     <div class="row bg-dark p-4">
         <div class="col-6">

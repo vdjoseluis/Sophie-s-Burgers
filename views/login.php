@@ -1,9 +1,7 @@
 <?php
-    if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-        if (isset($_POST['rememberEmail'])) {    
-            echo "<script>alert ('¡ Te hemos enviado un email con tus datos registrados !');</script>";
-        }        
-    }
+if (isset($_POST['rememberEmail'])) {
+    echo "<script>alert ('¡ Te hemos enviado un email con tus datos registrados !');</script>";
+}
 ?>
 
 <section class="rounded d-flex justify-content-center">
@@ -32,8 +30,8 @@
         <form id="formRemember" class="d-none" action="index.php?content=login" method="post">
             <div class="input-group mb-3">
                 <span class="input-group-text bg-primary"><i class="bi bi-envelope-fill text-white"></i></span>
-                <input type="email" class="form-control" name="rememberEmail" placeholder="Escribe tu email" required>
-                <button class="btn btn-outline-primary text-center col-4" id="btnSendEmail" type="submit">
+                <input type="email" class="form-control" name="recipient" placeholder="Escribe tu email" required>
+                <button class="btn btn-outline-primary text-center col-4" name="rememberEmail" type="submit">
                     Enviar
                 </button>
             </div>
