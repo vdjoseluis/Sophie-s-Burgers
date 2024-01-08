@@ -3,6 +3,13 @@
     handleClick("#btnToMenu", "index.php?content=menus");
 </script>
 
+<?php
+include ('controller/functions.php');
+if (isset($_POST['placeOrder'])) {
+    placeOrder($_POST['orderOptions']);
+}
+?>
+
 <section class="imgs-container">
     <div id="carouselAutoplaying" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">

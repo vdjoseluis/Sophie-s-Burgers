@@ -16,9 +16,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="css/styles.css" />
-    <!--<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>-->
-    <script src="js/index.js"></script>
-    <!--<script src="https://maps.googleapis.com/maps/api/js?key=   &libraries=places"></script>-->
+<!--     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+ -->    <script src="js/index.js"></script>
 </head>
 
 <body>

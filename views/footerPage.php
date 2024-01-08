@@ -1,5 +1,5 @@
 <footer>
-    <ul class="lh-lg">
+    <ul class="lh-lg text-success">
         <li>Copyright ® 2023 Sophie's Burger </li>
     </ul>
     <div class="logo">

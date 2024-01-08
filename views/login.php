@@ -1,9 +1,3 @@
-<?php
-if (isset($_POST['rememberEmail'])) {
-    echo "<script>alert ('¡ Te hemos enviado un email con tus datos registrados !');</script>";
-}
-?>
-
 <section class="rounded d-flex justify-content-center">
     <div class="col-md-6 shadow-lg p-5">
         <form action="index.php?content=pedidos" method="POST" id="formLogin">
@@ -27,7 +21,7 @@ if (isset($_POST['rememberEmail'])) {
             <p class="text-center text-primary"><a href="#" id="rememberLink">He olvidado mi contraseña?</a></p>
         </form>
 
-        <form id="formRemember" class="d-none" action="index.php?content=login" method="post">
+        <form id="formRemember" class="d-none" action="sendEmail.php" method="post">
             <div class="input-group mb-3">
                 <span class="input-group-text bg-primary"><i class="bi bi-envelope-fill text-white"></i></span>
                 <input type="email" class="form-control" name="recipient" placeholder="Escribe tu email" required>

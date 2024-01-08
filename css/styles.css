@@ -108,10 +108,7 @@ footer {
   gap: 20px;
   background-color: #1a2127
 }
-footer li {
-  list-style: none;
-  color: #87bd6f
-}
+
 footer li a {
   color: #ece2e2;
   text-decoration: none

@@ -1,16 +1,19 @@
 <?php
 if (isset($_POST['signin'])) {
-    require('controller/querys.php');
-    require('controller/functions.php');
+    include('controller/functions.php');
 
     $correctData = (checkAddress($_POST['address']) && checkPhone($_POST['phone'])) ? true : false;
 
     if ($correctData) {
         if (!existsUser($_POST['username'])) {
             createUser($_POST['username'], $_POST['password'], $_POST['firstname'], $_POST['surname'], $_POST['address'], $_POST['phone'], $_POST['email']);
-            echo "<script>alert ('¡ Usuario registrado correctamente !');</script>";
+            echo "<div class='alert alert-success' role='alert'>
+                    ¡ Usuario registrado correctamente !
+                  </div>";
         } else {
-            echo "<script>alert ('¡ ERROR: El usuario ya existe !');</script>";
+            echo "<div class='alert alert-danger' role='alert'>
+                    ¡ ATENCIÓN: El usuario ya existe !
+                  </div>";
         }
     }
 }

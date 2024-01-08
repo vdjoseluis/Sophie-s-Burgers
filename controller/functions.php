@@ -1,13 +1,21 @@
 <?php
-function checkPhone($phoneInput){
-    $patternPhone= "/^[6-7]\d{8}$/";
-    if (preg_match($patternPhone, $phoneInput)) { return true; } else {
-        echo "<script>alert ('¡ El número de teléfono no es válido !');</script>"; 
+include("querys.php");
+
+function checkPhone($phoneInput)
+{
+    $patternPhone = "/^[6-7]\d{8}$/";
+    if (preg_match($patternPhone, $phoneInput)) {
+        return true;
+    } else {
+        echo "<div class='alert alert-danger' role='alert'>
+                ¡ El número de teléfono no es válido !
+              </div>";
         return false;
     }
 }
 
-function checkAddress($addressInput) {
+function checkAddress($addressInput)
+{
     $env = parse_ini_file('.env');
     $apiKey = $env['GOOGLE_MAPS_API_KEY'];
 
@@ -29,13 +37,70 @@ function checkAddress($addressInput) {
             }
             return true;  // Devuelve true...sin errores.            
         } else {
-            echo "<script>alert ('¡ Dirección no válida !');</script>"; 
+            echo "<div class='alert alert-danger' role='alert'>
+                ¡ Dirección no válida !
+              </div>";
             return false; // Devuelve false a un error de dirección.
         }
     } else {
-        $city= "Error API Google Maps";
-        echo "<script>alert ('¡ Dirección no válida !');</script>"; 
+        $city = "Error API Google Maps";
+        echo "<div class='alert alert-danger' role='alert'>
+                ¡ Dirección no válida !
+              </div>";
         return false;
     }
 }
+
+function writeProducts()
+{
+    echo "  <table class='table table-striped m-4'>
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th class='col-2'>Cantidad</th>
+                </tr>
+            </thead>
+            <tbody>";
+    $products = getProducts();
+    while ($row = mysqli_fetch_assoc($products)) {
+        echo "<tr>";
+        echo "<td>{$row['product']}</td>";
+        echo "<td>{$row['price']} €</td>";
+        echo "<td><input type='number' name='items[{$row['id']}][quantity]' value='0' min='0'>";
+        echo "<input type='hidden' name='items[{$row['id']}][product_id]' value='{$row['id']}'></td>";
+        echo "</tr>";
+    }
+    echo "</tbody> </table>";
+}
+
+function getProductPrice($connection, $product_id)
+{
+    $sql = "SELECT price FROM products WHERE id = $product_id";
+    $result = mysqli_query($connection, $sql);
+    $row = mysqli_fetch_assoc($result);
+
+    if ($row) {
+        return $row['price'];
+    } else {
+        return 0; // Precio predeterminado en caso de no encontrar el producto
+    }
+}
+
+function calculateTotal($connection, $items)
+{
+    $total = 0;
+
+    foreach ($items as $item) {
+        $product_id = $item['product_id'];
+        $quantity = $item['quantity'];
+
+        if ($quantity > 0) {
+            $price = getProductPrice($connection, $product_id);
+            $total += $price * $quantity;
+        }
+    }
+    return $total;
+}
+
 ?>

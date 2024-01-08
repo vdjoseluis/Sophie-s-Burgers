@@ -58,14 +58,3 @@ INSERT INTO products (product, price) VALUES
     ('Batido de Vainilla', 3.99),
     ('Perrito Caliente', 4.99),
     ('Aros de Cebolla', 3.49);
-
-INSERT INTO items (ticket_id, product_id, quantity) VALUES
-	(1,1,1),
-    (1,6,2),
-    (1,7,1),
-    (1,8,1),
-    (2,11,2);
-    
-INSERT INTO tickets (date, customer_id, total) VALUES
-	('2023-09-25', 4, 17.91),
-    ('2023-09-28',1, 4.98);

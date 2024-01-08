@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("#formLogin").classList.add("d-none");
     document.querySelector("#formRemember").classList.remove("d-none");
     document.querySelector("#formRemember input").focus();
-  });  
+  });
 });
 
 function handleClick(component, destLink) {
@@ -31,3 +31,4 @@ function hideLink(currentLink) {
     }
   });
 }
+
