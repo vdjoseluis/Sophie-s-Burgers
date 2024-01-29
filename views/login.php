@@ -1,6 +1,18 @@
+<?php
+if (isset($_POST['btnLoginOrder']) || isset($_POST['btnLoginBookings'])) {
+    $url = $_POST['previousUrl'];
+} elseif (isset($_POST['btnUpdateUser'])) {
+    $url = $_POST['previousUrl'];
+    $actionRecord= "update";
+} elseif (isset($_POST['btnDeleteUser'])) {
+    $url = $_POST['previousUrl'];
+    $actionRecord="delete";
+}
+?>
+
 <section class="rounded d-flex justify-content-center">
     <div class="col-md-6 shadow-lg p-5">
-        <form action="index.php?content=pedidos" method="POST" id="formLogin">
+        <form action="<?php echo $url; ?>" method="post" id="formLogin">
             <div class="p-4">
                 <div class="input-group mb-3">
                     <span class="input-group-text bg-primary"><i class="bi bi-person-plus-fill text-white"></i></span>
@@ -10,6 +22,7 @@
                     <span class="input-group-text bg-primary"><i class="bi bi-key-fill text-white"></i></span>
                     <input type="password" class="form-control" placeholder="Contraseña" name="password" required>
                 </div>
+                <input type="hidden" name="actionRecord" value="<?php echo $actionRecord; ?>">
                 <button class="btn btn-outline-primary text-center mt-2 col-4" type="submit" name="login">
                     Iniciar
                 </button>

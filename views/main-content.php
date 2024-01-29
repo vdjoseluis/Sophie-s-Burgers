@@ -3,13 +3,6 @@
     handleClick("#btnToMenu", "index.php?content=menus");
 </script>
 
-<?php
-include ('controller/functions.php');
-if (isset($_POST['placeOrder'])) {
-    placeOrder($_POST['orderOptions']);
-}
-?>
-
 <section class="imgs-container">
     <div id="carouselAutoplaying" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -31,26 +24,15 @@ if (isset($_POST['placeOrder'])) {
     </div>
 </section>
 
-<nav class="second-bar d-none d-md-block">
+<nav class="second-bar">    
     <ul class="nav justify-content-center">
-        <li class="nav-item"><a class="nav-link" href="#">Conócenos</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.php?content=aboutUs">Conócenos</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.php?content=contactUs">Contacto</a></li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Únete a nosotros</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Solicitar factura</a>
-        </li>
+            <a class="nav-link" href="index.php?content=job">Únete a nosotros</a>
+        </li>        
     </ul>
 </nav>
-<select class="second-bar form-select d-block d-md-none">
-    <option selected>Conócenos</option>
-    <option value="1">Blog</option>
-    <option value="2">Contacto</option>
-    <option value="3">Únete a nosotros</option>
-    <option value="4">Solicitar factura</option>
-</select>
 
 <article class="text-article">
     <p class="text lh-lg">
@@ -78,7 +60,7 @@ if (isset($_POST['placeOrder'])) {
     </div>
 </section>
 
-<section class="discover-menu">
+<section class="discover">
     <h3>NUESTROS MENÚS</h3>
     <button type="button" id="btnToMenu" class="btn btn-outline-danger btn-md">
         VER MÁS > >

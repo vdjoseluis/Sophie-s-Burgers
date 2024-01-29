@@ -1,6 +1,6 @@
 <script>hideLink("Menús");</script>
 
-<section class="discover-menu">
+<section class="discover">
   <h1>NUESTROS MENÚS</h1>
 
   <div class="gallery-menu">

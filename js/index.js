@@ -12,7 +12,7 @@ function handleClick(component, destLink) {
     document.querySelector(component).addEventListener("click", (e) => {
       e.preventDefault();
       window.location.href = destLink;
-    });  
+    });
   });
 }
 
@@ -32,3 +32,12 @@ function hideLink(currentLink) {
   });
 }
 
+function checkPhone() {
+  let phone= document.querySelector("#phone").value;
+  let regexPhone= /^[6-7]\d{8}$/;
+  if (!regexPhone.test(phone)) {
+    alert("Por favor, introduce un número de teléfono válido (9 dígitos que comience con 6 o 7).");
+    return false;
+  }
+  return true;
+}

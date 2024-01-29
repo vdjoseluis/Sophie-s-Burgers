@@ -1,8 +1,7 @@
 <?php
 include("querys.php");
 
-function checkPhone($phoneInput)
-{
+function checkPhone($phoneInput) {
     $patternPhone = "/^[6-7]\d{8}$/";
     if (preg_match($patternPhone, $phoneInput)) {
         return true;
@@ -14,8 +13,7 @@ function checkPhone($phoneInput)
     }
 }
 
-function checkAddress($addressInput)
-{
+function checkAddress($addressInput) {
     $env = parse_ini_file('.env');
     $apiKey = $env['GOOGLE_MAPS_API_KEY'];
 
@@ -26,16 +24,22 @@ function checkAddress($addressInput)
         $data = json_decode($result);
 
         if ($data->status == "OK") {
-            // Accede a la población de la dirección
             $city = "¡ Población no encontrada !";
 
+            // Accede a la población de la dirección
             foreach ($data->results[0]->address_components as $component) {
                 if (in_array("locality", $component->types)) {
                     $city = $component->long_name;
                     break;
                 }
             }
-            return true;  // Devuelve true...sin errores.            
+
+            // Ciudades permitidas para entrega a domicilio
+            $allowedCities= ['Málaga','Colmenar','Casabermeja','Riogordo'];
+            $deliveryEnabled= (in_array($city,$allowedCities)) ? 1 : 0;
+
+            return ['city' => $city,
+                    'deliveryEnabled' => $deliveryEnabled, ];
         } else {
             echo "<div class='alert alert-danger' role='alert'>
                 ¡ Dirección no válida !
@@ -51,8 +55,7 @@ function checkAddress($addressInput)
     }
 }
 
-function writeProducts()
-{
+function writeProducts() {
     echo "  <table class='table table-striped m-4'>
             <thead>
                 <tr>
@@ -74,8 +77,7 @@ function writeProducts()
     echo "</tbody> </table>";
 }
 
-function getProductPrice($connection, $product_id)
-{
+function getProductPrice($connection, $product_id) {
     $sql = "SELECT price FROM products WHERE id = $product_id";
     $result = mysqli_query($connection, $sql);
     $row = mysqli_fetch_assoc($result);
@@ -87,8 +89,7 @@ function getProductPrice($connection, $product_id)
     }
 }
 
-function calculateTotal($connection, $items)
-{
+function calculateTotal($connection, $items) {
     $total = 0;
 
     foreach ($items as $item) {
@@ -103,4 +104,10 @@ function calculateTotal($connection, $items)
     return $total;
 }
 
+function correctBooking($date, $time) {
+    $dateTimeString = $date . ' ' . $time;
+    $dateTimeObj = new DateTime($dateTimeString);
+    $currentDateTime = new DateTime();
+    return ($dateTimeObj > $currentDateTime) ? true : false;
+}
 ?>

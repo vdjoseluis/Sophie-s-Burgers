@@ -57,6 +57,9 @@ header {
   color: #c00404;
   font-size: 1.3rem
 }
+.paragraph {
+  text-align: justify;
+}
 .text-article {
   text-align: justify;
   background-color: #fff;
@@ -67,9 +70,15 @@ header {
     padding: 1rem 3rem;
     font-size: .9rem
   }
+  .second-bar li a {
+    font-size: .9rem;
+  }
+  .second-bar li a:hover {
+    font-size: 1rem;
+  }
 }
 .discover-dishes,
-.discover-menu {
+.discover{
   color: #585454;
   padding: 2rem;
   display: flex;
@@ -77,11 +86,11 @@ header {
   align-items: center;
   gap: 2rem
 }
-.discover-menu {
+.discover{
   background-color: #dadada
 }
 .gallery,
-.gallery-menu {
+.gallery-menu{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
