@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS tickets (
     date DATE NOT NULL,
     time TIME NOT NULL,
     customer_id INT,
-    FOREIGN KEY (customer_id) REFERENCES customers(id),
+    CONSTRAINT fk_customerT FOREIGN KEY (customer_id) REFERENCES customers(id),
     total FLOAT NOT NULL,
     delivery_option VARCHAR(20) NOT NULL
 );
@@ -53,9 +53,9 @@ CREATE TABLE IF NOT EXISTS tickets (
 CREATE TABLE IF NOT EXISTS items (
     id INT AUTO_INCREMENT PRIMARY KEY,
     ticket_id INT,
-    FOREIGN KEY (ticket_id) REFERENCES tickets(id),
+    CONSTRAINT fk_ticket FOREIGN KEY (ticket_id) REFERENCES tickets(id),
     product_id INT,
-    FOREIGN KEY (product_id) REFERENCES products(id),
+    CONSTRAINT fk_product FOREIGN KEY (product_id) REFERENCES products(id),
     quantity INT NOT NULL
 );
 
@@ -118,28 +118,6 @@ BEGIN
         UPDATE tables SET reserved = FALSE WHERE id = @tableIdToFree;
     END IF;
 END;
-//
-
-DELIMITER ;
-
-
--- EVENTO QUE ELIMINA LOS PEDIDOS PASADAS 2 HORAS DESDE SU CREACION
-DELIMITER //
-
-CREATE EVENT IF NOT EXISTS delete_old_tickets
-ON SCHEDULE EVERY 1 HOUR
-DO
-BEGIN
-  SET @current_time = CURRENT_TIME();
-  SET @delete_time = SUBTIME(@current_time, '02:00:00');
-
-  -- Comprueba si la hora actual está entre 12:00 y 23:00
-  IF TIME(@current_time) BETWEEN '12:00:00' AND '23:00:00' THEN
-    DELETE FROM tickets
-    WHERE `time` <= @delete_time;
-  END IF;
-END;
-
 //
 
 DELIMITER ;
