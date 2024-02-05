@@ -62,6 +62,9 @@ if (isset($_POST['confirmOrderFinal']) && !isset($_SESSION['orderConfirmed'])) {
     $items = json_decode($_POST['items'], true);
     $deliveryOption = $_POST['deliveryOption'];
     addOrder($connection, $customerId, $items, $deliveryOption);
+    echo "<div class='alert alert-warning' role='alert'>
+                Serás redirigido al sistema de pago de seguro...
+              </div>";
 
     if ($deliveryOption == 'delivery') {
         echo "<div class='alert alert-success' role='alert'>
@@ -72,7 +75,7 @@ if (isset($_POST['confirmOrderFinal']) && !isset($_SESSION['orderConfirmed'])) {
                 ¡ Muchas gracias ! En unos minutos podrás recoger tu pedido en tienda.
               </div>";
     }
-    echo "<meta http-equiv='refresh' content='3;url=index.php'>";
+    echo "<meta http-equiv='refresh' content='5;url=index.php'>";
     session_write_close();
     exit;
 }
