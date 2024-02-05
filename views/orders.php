@@ -75,7 +75,7 @@ if (isset($_POST['confirmOrderFinal']) && !isset($_SESSION['orderConfirmed'])) {
                 ¡ Muchas gracias ! En unos minutos podrás recoger tu pedido en tienda.
               </div>";
     }
-    echo "<meta http-equiv='refresh' content='5;url=index.php'>";
+    echo "<meta http-equiv='refresh' content='7;url=index.php'>";
     session_write_close();
     exit;
 }
